@@ -2,8 +2,6 @@
 require "../conexion.php";
 $usuarios = mysqli_query($conexion, "SELECT * FROM usuario");
 $totalU= mysqli_num_rows($usuarios);
-$clientes = mysqli_query($conexion, "SELECT * FROM cliente");
-$totalC = mysqli_num_rows($clientes);
 $productos = mysqli_query($conexion, "SELECT * FROM producto");
 $totalP = mysqli_num_rows($productos);
 $ventas = mysqli_query($conexion, "SELECT * FROM ventas");
@@ -31,24 +29,6 @@ $totalV = mysqli_num_rows($ventas);
             </div>
         </a>
 
-        <!-- Earnings (Monthly) Card Example -->
-        <a class="col-xl-3 col-md-6 mb-4" href="clientes.php">
-            <div class="card border-left-success shadow h-100 py-2 bg-success">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Clientes</div>
-                            <div class="h5 mb-0 font-weight-bold text-white"><?php echo $totalC; ?></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <!-- Earnings (Monthly) Card Example -->
         <a class="col-xl-3 col-md-6 mb-4" href="productos.php">
             <div class="card border-left-info shadow h-100 py-2 bg-primary">
                 <div class="card-body">
@@ -74,7 +54,6 @@ $totalV = mysqli_num_rows($ventas);
             </div>
         </a>
 
-        <!-- Pending Requests Card Example -->
         <a class="col-xl-3 col-md-6 mb-4" href="ventas.php">
             <div class="card border-left-warning bg-danger shadow h-100 py-2">
                 <div class="card-body">
