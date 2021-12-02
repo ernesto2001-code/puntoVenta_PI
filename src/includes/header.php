@@ -62,11 +62,6 @@ if (empty($_SESSION['active'])) {
                             <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
                             Configuración
                         </a>
-                        <a class="nav-link" href="clientes.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                            Clientes
-                        </a>
-
                         <a class="nav-link" href="lista_ventas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                             Ventas
