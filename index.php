@@ -54,7 +54,7 @@ if (!empty($_SESSION['active'])) {
             background-position: center;
             font-family: sans-serif;
         }
-
+        
     </style>
 </head>
 
