@@ -70,7 +70,7 @@ if (empty($existe) && $id_user != 1) {
                      <tr>
                          <td><?php echo $data['codigo']; ?></td>
                          <td><?php echo $data['descripcion']; ?></td>
-                         <td><?php echo $data['precio']; ?></td>
+                         <td>$<?php echo $data['precio']; ?></td>
                          <td><?php echo $data['existencia']; ?></td>
                          <td>
                              <?php if ($data['estado'] == 1) { ?>
