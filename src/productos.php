@@ -50,7 +50,6 @@ if (empty($existe) && $id_user != 1) {
                  <th>Nombre y Descripcion</th>
                  <th>Precio</th>
                  <th>Stock</th>
-                 <th>Estado</th>
                  <th></th>
              </tr>
          </thead>
@@ -73,7 +72,6 @@ if (empty($existe) && $id_user != 1) {
                          <td><?php echo $data['descripcion']; ?></td>
                          <td><?php echo $data['precio']; ?></td>
                          <td><?php echo $data['existencia']; ?></td>
-                         <td><?php echo $estado ?></td>
                          <td>
                              <?php if ($data['estado'] == 1) { ?>
                                  <a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-info"><i class="fas fa-edit"></i></a>
