@@ -70,13 +70,13 @@ if (!empty($_SESSION['active'])) {
                                     <img class="img-thumbnail" src="assets/img/logo2.png" width="100">
                                     <h3 class="font-weight-light my-4"></h3>
                                 </div>
-                                <div class="card-body">
-                                    <form action="" method="POST">
+                                <div class="card-body ">
+                                    <form class="text-center" action="" method="POST">
                                         <div class="form-group">
                                             <label class="small mb-1" for="usuario">Usuario</label>
                                             <input class="form-control py-4" id="usuario" name="usuario" type="text" placeholder="Ingrese usuario" required />
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label class="small mb-1" for="clave">Contraseña</label>
                                             <input class="form-control py-4" id="clave" name="clave" type="password" placeholder="Ingrese Contraseña" required />
                                         </div>
@@ -84,8 +84,8 @@ if (!empty($_SESSION['active'])) {
 
                                         </div>
                                         <?php echo isset($alert) ? $alert : ''; ?>
-                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button class="btn btn-dark" type="submit">Entrar</button>
+                                        <div class=" form-group d-flex align-items-center justify-content-between mt-4 mb-0 ">
+                                            <button class="btn btn-dark " type="submit">Entrar</button>
                                         </div>
                                     </form>
                                 </div>

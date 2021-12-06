@@ -22,7 +22,7 @@ if (empty($existe) && $id_user != 1) {
                             <h1>Agregar Producto</h1>
                             <form action="" method="get" class="form_search">
                                 <input type="text" name="busqueda" id="buscqueda" placeholder="Buscar...">
-                                <input type="submit" name="buscar" value="Buscar" class="btnSearch">
+                                <input type="submit"  name="buscar" value="Buscar" class="btnSearch">
                             </form>
                             <br><hr>
                             <table class="table">
@@ -66,7 +66,7 @@ if (empty($existe) && $id_user != 1) {
                             ?>
                             </tbody>
                             </table>
-                            <a href="ventas.php"><button id="cerrar" class="buscarP">Cerrar</button></a>
+                            <a href="ventas.php"><button id="cerrar" class="btn btn-danger"><i class="far fa-hand-point-left"></i> Regresar </button></a>
 
                             <?php
                                 if (isset($_REQUEST["btnAgregar"])) {
