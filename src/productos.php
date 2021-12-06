@@ -1,4 +1,5 @@
- <?php include_once "includes/header.php";
+ <?php ob_start();
+ include_once "includes/header.php";
     include "../conexion.php";
 $id_user = $_SESSION['idUser'];
 $permiso = "productos";
