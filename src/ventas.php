@@ -1,4 +1,5 @@
-<?php include_once "includes/header.php";
+<?php 
+include_once "includes/header.php";
 require("../conexion.php");
 $id_user = $_SESSION['idUser'];
 $permiso = "nueva_venta";
@@ -10,61 +11,61 @@ if (empty($existe) && $id_user != 1) {
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header bg-primary text-white text-center">
-                Datos Venta
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label><i class="fas fa-user"></i> VENDEDOR</label>
-                            <p style="font-size: 16px; text-transform: uppercase; color: red;"><?php echo $_SESSION['nombre']; ?></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">
-                                Buscar Producto
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <input id="producto" class="form-control" type="text" name="producto" placeholder="Ingresa el código o nombre">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <br>
+        <a href="buscar_productos.php"><button class="buscarP" id="abrir">Agregar Producto</button></a>
         <div class="table-responsive">
+        <br>
+        <?php
+            $total = 0;
+            if (isset($_SESSION['carrito'])) 
+            {?>
+                
             <table class="table table-hover" id="tblDetalle">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>Codigo</th>
                         <th>Descripción</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
-                        <th>Precio Total</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody id="detalle_venta">
-
+                <?php
+                    foreach ($_SESSION["carrito"] as $indice => $arreglo) {
+                        $total += $arreglo["canti"] * $arreglo["precio"];                                        
+                            echo "<tr>";
+                            foreach ($arreglo as $key => $value) {
+                                echo "<th>" .$value. "</th>";
+                            }
+                            echo "<th><a href='ventas.php?item=$indice' class='btn btn-danger'><i class='fas fa-trash'></a></th>";
+                            echo "</tr>";
+                        }?>
                 </tbody>
                 <tfoot>
                     <tr class="font-weight-bold">
-                        <td colspan=3>Total Pagar</td>
+                        <td colspan=3>Total a pagar: $<?php echo $total?></td>
                         <td></td>
                     </tr>
                 </tfoot>
             </table>
+            <?php } 
 
+            if (isset($_REQUEST["item"])) {
+
+                $producto = $_REQUEST["item"];
+                unset($_SESSION["carrito"][$producto]);
+            }
+
+            if (isset($_REQUEST["vaciar"])) {
+                unset($_SESSION["carrito"]);
+            }
+            
+            ?>
         </div>
     </div>
     <div class="col-md-6">
-        <a href="#" class="btn btn-primary" id="btn_generar"><i class="fas fa-save"></i> Generar Venta</a>
+        <a href="#" class="btn btn-primary" id="btn_generar">    Pagar    </a>
     </div>
 
 </div>
