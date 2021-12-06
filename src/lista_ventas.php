@@ -8,26 +8,24 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: permisos.php");
 }
-$query = mysqli_query($conexion, "SELECT v.*, c.idcliente, c.nombre FROM ventas v INNER JOIN cliente c ON v.id_cliente = c.idcliente");
+$query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
 ?>
 <table class="table table-light" id="tbl">
     <thead class="thead-dark">
         <tr>
-            <th>Cliente</th>
-            <th>Total</th>
+            <th>Id</th>
+            <th>Vendedor</th>
             <th>Fecha</th>
-            <th></th>
+            <th>Monto</th>
         </tr>
     </thead>
     <tbody>
         <?php while ($row = mysqli_fetch_assoc($query)) { ?>
             <tr>
-                <td><?php echo $row['nombre']; ?></td>
-                <td><?php echo $row['total']; ?></td>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['usuario']; ?></td>
                 <td><?php echo $row['fecha']; ?></td>
-                <td>
-                    <a href="pdf/generar.php?cl=<?php echo $row['id_cliente'] ?>&v=<?php echo $row['id'] ?>" target="_blank" class="btn btn-danger"><i class="fas fa-file-pdf"></i></a>
-                </td>
+                <td>$<?php echo $row['total'];?></td>
             </tr>
         <?php } ?>
     </tbody>

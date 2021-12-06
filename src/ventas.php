@@ -66,23 +66,23 @@ if (empty($existe) && $id_user != 1) {
         </div>
     </div>
     <div class="col-md-6">
-        <form action="" method="get">
-            <input type="number" id="dinero" name="dinero" value="0">
-        </form><br>
 
         <?php
-        $cambio = 0;
-        $dinero = $_GET['dinero'];
         
         ?>
         <a href="ventas.php?pagar=true" class="btn btn-primary" id="btn_generar">    Pagar    </a>
         <?php
+        $date = date('Y-m-d');
+        $usuario = $_SESSION['nombre'];
 
             if (isset($_REQUEST['pagar'])) {
-                $cambio = $dinero - $total;
+                $consulta = "INSERT INTO `detalle_ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
 
-                echo "<script>alert(Su cambio es de $$cambio);</script>";
+                $resultado = $conexion -> query($consulta);
 
+                if ($resultado) {
+                    unset($_SESSION["carrito"]);
+                }
             }
         ?>
 
