@@ -65,10 +65,7 @@ if (empty($existe) && $id_user != 1) {
             ?>
         </div>
     </div>
-    <div class="col-md-6">
-            <form action="" method="POST">
-                <input type="number" name="dinero">
-            </form>
+    <div class="col-md-6"></div>
         <?php
         
         ?>
