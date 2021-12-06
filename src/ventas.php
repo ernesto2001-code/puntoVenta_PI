@@ -49,20 +49,7 @@ if (empty($existe) && $id_user != 1) {
                     </tr>
                 </tfoot>
             </table>
-            <?php } 
-
-            if (isset($_REQUEST["item"])) {
-
-                $producto = $_REQUEST["item"];
-                unset($_SESSION["carrito"][$producto]);
-            }
-
-            if (isset($_REQUEST["vaciar"])) {
-                unset($_SESSION["carrito"]);
-            }
-            
-
-            ?>
+            <?php }?>
         </div>
     </div>
     <div class="col-md-6">
@@ -75,6 +62,17 @@ if (empty($existe) && $id_user != 1) {
         <?php
         $date = date('Y-m-d');
         $usuario = $_SESSION['nombre'];
+
+        if (isset($_REQUEST["item"])) {
+
+            $producto = $_REQUEST["item"];
+            unset($_SESSION["carrito"][$producto]);
+        }
+
+        if (isset($_REQUEST["vaciar"])) {
+            unset($_SESSION["carrito"]);
+        }
+
             if (isset($_REQUEST['pagar'])) {
 
                 $consulta = "INSERT INTO `detalle_ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
