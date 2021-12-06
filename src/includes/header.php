@@ -35,16 +35,15 @@ if (empty($_SESSION['active'])) {
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">Abarrotes DonChuy</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-align-justify"></i></button>
 
-        <!-- Navbar-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']?></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#nuevo_pass">Perfil</a>
+                    <a class="dropdown-item" href="salir.php">Cerrar Sesión</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="salir.php">Cerrar Sessión</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#nuevo_pass">Cambiar contraseña</a>
                 </div>
             </li>
         </ul>
@@ -55,24 +54,19 @@ if (empty($_SESSION['active'])) {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <a class="nav-link" href="ventas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
-                            Nueva venta
-                        </a>
-                        <a class="nav-link" href="config.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
-                            Configuración
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>  Nueva venta
                         </a>
                         <a class="nav-link" href="lista_ventas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
-                            Ventas
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div> Ventas
                         </a>
                         <a class="nav-link" href="productos.php">
-                            <div class="sb-nav-link-icon"><i class="fab fa-product-hunt"></i></div>
-                            Productos
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>Productos
                         </a>
                         <a class="nav-link" href="usuarios.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Usuarios
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div> Usuarios
+                        </a>
+                        <a class="nav-link" href="config.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>Datos Empresa
                         </a>
 
                     </div>

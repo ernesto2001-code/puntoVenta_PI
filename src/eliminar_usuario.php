@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../conexion.php");
 $id_user = $_SESSION['idUser'];
 $permiso = "usuarios";
@@ -9,7 +10,7 @@ if (empty($existe) && $id_user != 1) {
 }
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
-    $query_delete = mysqli_query($conexion, "UPDATE usuario SET estado = 0 WHERE idusuario = $id");
+    $query_delete = mysqli_query($conexion, "DELETE FROM usuario WHERE idusuario = $id");
     mysqli_close($conexion);
     header("Location: usuarios.php");
 }

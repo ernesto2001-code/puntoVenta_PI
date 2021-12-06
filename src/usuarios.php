@@ -45,7 +45,7 @@ if (!empty($_POST)) {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="my-modal-title">Nuevo Usuario</h5>
+                <h5 class="modal-title" id="my-modal-title">Agregar usuario</h5>
                 <button class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,11 +79,11 @@ if (!empty($_POST)) {
     <table class="table table-hover table-striped table-bordered mt-2" id="tbl">
         <thead class="thead-dark">
             <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>Usuario</th>
                 <th>Nombre</th>
                 <th>Correo</th>
-                <th>Estado</th>
+
                 <th></th>
             </tr>
         </thead>
@@ -108,7 +108,6 @@ if (!empty($_POST)) {
                         <td><?php echo $data['nombre']; ?></td>
                         <td><?php echo $data['correo']; ?></td>
                         <td><?php echo $data['usuario']; ?></td>
-                        <td><?php echo $estado; ?></td>
                         <td>
                             <?php if ($data['estado'] == 1) { ?>
                                 <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-warning"><i class='fas fa-key'></i></a>

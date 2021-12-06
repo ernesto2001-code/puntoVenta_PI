@@ -13,7 +13,6 @@ $query = mysqli_query($conexion, "SELECT v.*, c.idcliente, c.nombre FROM ventas 
 <table class="table table-light" id="tbl">
     <thead class="thead-dark">
         <tr>
-            <th>#</th>
             <th>Cliente</th>
             <th>Total</th>
             <th>Fecha</th>
@@ -23,7 +22,6 @@ $query = mysqli_query($conexion, "SELECT v.*, c.idcliente, c.nombre FROM ventas 
     <tbody>
         <?php while ($row = mysqli_fetch_assoc($query)) { ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
                 <td><?php echo $row['nombre']; ?></td>
                 <td><?php echo $row['total']; ?></td>
                 <td><?php echo $row['fecha']; ?></td>
