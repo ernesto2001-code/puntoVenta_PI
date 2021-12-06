@@ -66,7 +66,9 @@ if (empty($existe) && $id_user != 1) {
         </div>
     </div>
     <div class="col-md-6">
-
+            <form action="" method="POST">
+                <input type="number" name="dinero">
+            </form>
         <?php
         
         ?>
@@ -74,8 +76,8 @@ if (empty($existe) && $id_user != 1) {
         <?php
         $date = date('Y-m-d');
         $usuario = $_SESSION['nombre'];
-
             if (isset($_REQUEST['pagar'])) {
+
                 $consulta = "INSERT INTO `detalle_ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
 
                 $resultado = $conexion -> query($consulta);

@@ -17,6 +17,7 @@ $query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
             <th>Vendedor</th>
             <th>Fecha</th>
             <th>Monto</th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,9 @@ $query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
                 <td><?php echo $row['usuario']; ?></td>
                 <td><?php echo $row['fecha']; ?></td>
                 <td>$<?php echo $row['total'];?></td>
+                <td><form action="eliminar_venta.php?id=<?php echo $row['id']; ?>" method="post" class="confirmar d-inline">
+                        <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                    </form></td>
             </tr>
         <?php } ?>
     </tbody>
