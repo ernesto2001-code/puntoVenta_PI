@@ -65,11 +65,13 @@ if (empty($existe) && $id_user != 1) {
             ?>
         </div>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
         <?php
         
         ?>
         <a href="ventas.php?pagar=true" class="btn btn-primary" id="btn_generar">    Pagar    </a>
+        
+        <a href="ventas.php?vaciar=true" class="btn btn-warning" id="btn_generar">    Vaciar    </a>
         <?php
         $date = date('Y-m-d');
         $usuario = $_SESSION['nombre'];
