@@ -40,7 +40,7 @@ if (!empty($_POST)) {
     }
 }
 ?>
-<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#nuevo_usuario"><i class="fas fa-plus"></i></button>
+<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#nuevo_usuario"> Agregar Usuario <i class="fas fa-plus"></i></button>
 <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -110,8 +110,8 @@ if (!empty($_POST)) {
                         <td><?php echo $data['usuario']; ?></td>
                         <td>
                             <?php if ($data['estado'] == 1) { ?>
-                                <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-primary"><i class='fas fa-key'></i></a>
-                                <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+                                <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-primary">Rol</a>
+                                <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i>Editar</a>
                                 <form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
