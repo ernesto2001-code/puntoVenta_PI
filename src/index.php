@@ -4,7 +4,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuario");
 $totalU= mysqli_num_rows($usuarios);
 $productos = mysqli_query($conexion, "SELECT * FROM producto");
 $totalP = mysqli_num_rows($productos);
-$ventas = mysqli_query($conexion, "SELECT * FROM ventas");
+$ventas = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
 $totalV = mysqli_num_rows($ventas);
 ?>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
