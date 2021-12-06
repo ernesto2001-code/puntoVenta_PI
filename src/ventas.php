@@ -61,11 +61,31 @@ if (empty($existe) && $id_user != 1) {
                 unset($_SESSION["carrito"]);
             }
             
+
             ?>
         </div>
     </div>
     <div class="col-md-6">
-        <a href="#" class="btn btn-primary" id="btn_generar">    Pagar    </a>
+        <form action="" method="get">
+            <input type="number" id="dinero" name="dinero" value="0">
+        </form><br>
+
+        <?php
+        $cambio = 0;
+        $dinero = $_GET['dinero'];
+        
+        ?>
+        <a href="ventas.php?pagar=true" class="btn btn-primary" id="btn_generar">    Pagar    </a>
+        <?php
+
+            if (isset($_REQUEST['pagar'])) {
+                $cambio = $dinero - $total;
+
+                echo "<script>alert(Su cambio es de $$cambio);</script>";
+
+            }
+        ?>
+
     </div>
 
 </div>
