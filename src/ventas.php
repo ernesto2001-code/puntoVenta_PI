@@ -12,7 +12,7 @@ if (empty($existe) && $id_user != 1) {
 <div class="row">
     <div class="col-lg-12">
         <br>
-        <a href="buscar_productos.php"><button class="buscarP" id="abrir">Agregar Producto</button></a>
+        <a href="buscar_productos.php"><button class="btn btn-primary" id="abrir">Agregar Producto <i class="fas fa-cart-plus"></i></button></a>
         <div class="table-responsive">
         <br>
         <?php
@@ -56,7 +56,7 @@ if (empty($existe) && $id_user != 1) {
         <?php
         
         ?>
-        <a href="ventas.php?pagar=true" class="btn btn-primary" id="btn_generar">    Pagar    </a>
+        <a href="ventas.php?pagar=true" class="btn btn-success" id="btn_generar">    Pagar    <i class="fas fa-cash-register"></i></a>
         
         <a href="ventas.php?vaciar=true" class="btn btn-warning" id="btn_generar">    Vaciar    </a>
         <?php
