@@ -8,7 +8,7 @@ $ventas = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
 $totalV = mysqli_num_rows($ventas);
 ?>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray">Panel de Administración</h1>
+        <h1 class="h3 mb-0 text-gray">Abarrotes DonChuy || Administracion.</h1>
     </div>
 
     <!-- Content Row -->
@@ -35,11 +35,6 @@ $totalV = mysqli_num_rows($ventas);
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <div class="h5 mb-0 mr-3 font-weight-bold text-white"><?php echo $totalP; ?></div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
