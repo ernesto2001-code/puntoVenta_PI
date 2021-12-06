@@ -1,4 +1,6 @@
-<?php include_once "includes/header.php";
+<?php 
+ob_start();
+include_once "includes/header.php";
 require_once "../conexion.php";
 $id = $_GET['id'];
 $sqlpermisos = mysqli_query($conexion, "SELECT * FROM permisos");
@@ -19,9 +21,7 @@ if (isset($_POST['permisos'])) {
     if ($permisos != "") {
         foreach ($permisos as $permiso) {
             $sql = mysqli_query($conexion, "INSERT INTO detalle_permisos(id_usuario, id_permiso) VALUES ($id_user,$permiso)");
-            if ($sql == 1) {
-                header("Location: rol.php?id=".$id_user."&m=si");
-            } else {
+            if ($sql == 1) {header("Location: rol.php?id=".$id_user."&m=si");} else {
                 $alert = '<div class="alert alert-primary" role="alert">
                             Error al actualizar permisos
                         </div>';
@@ -63,4 +63,6 @@ if (isset($_POST['permisos'])) {
         </div>
     </div>
 </div>
+
 <?php include_once "includes/footer.php"; ?>
+

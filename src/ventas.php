@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 include_once "includes/header.php";
 require("../conexion.php");
 $id_user = $_SESSION['idUser'];
