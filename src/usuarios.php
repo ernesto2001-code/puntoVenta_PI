@@ -110,7 +110,7 @@ if (!empty($_POST)) {
                         <td><?php echo $data['usuario']; ?></td>
                         <td>
                             <?php if ($data['estado'] == 1) { ?>
-                                <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-warning"><i class='fas fa-key'></i></a>
+                                <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-primary"><i class='fas fa-key'></i></a>
                                 <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
                                 <form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>

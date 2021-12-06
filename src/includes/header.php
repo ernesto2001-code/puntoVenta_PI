@@ -65,9 +65,6 @@ if (empty($_SESSION['active'])) {
                         <a class="nav-link" href="usuarios.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div> Usuarios
                         </a>
-                        <a class="nav-link" href="config.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>Datos Empresa
-                        </a>
 
                     </div>
                 </div>
