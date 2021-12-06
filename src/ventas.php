@@ -49,7 +49,26 @@ if (empty($existe) && $id_user != 1) {
                     </tr>
                 </tfoot>
             </table>
-            <?php }?>
+            <?php }
+            else {
+                echo "<table class='table table-hover' id='tbblDetalle'>
+                                <thead class='thead-dark'>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Descripcion</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Accion</th>
+                                </tr>
+                                </thead>
+                                <tbody id='detalle_venta'>
+                                    <tr>
+                                        <th>Vacio</th>
+                                    </tr>
+                                </tbody>
+                                </table>";
+            }
+            ?>
         </div>
     </div>
     <div class="col-md-6">
