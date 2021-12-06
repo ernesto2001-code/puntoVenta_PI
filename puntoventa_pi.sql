@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2021 a las 05:42:30
+-- Tiempo de generación: 06-12-2021 a las 08:23:06
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -42,8 +42,11 @@ INSERT INTO `detalle_permisos` (`id`, `id_permiso`, `id_usuario`) VALUES
 (9, 4, 2),
 (10, 5, 2),
 (11, 6, 2),
-(14, 4, 4),
-(15, 6, 4);
+(16, 2, 5),
+(17, 4, 5),
+(18, 5, 5),
+(27, 4, 4),
+(28, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -81,7 +84,9 @@ INSERT INTO `detalle_ventas` (`id`, `usuario`, `fecha`, `total`) VALUES
 (1, 'william ramses', '2021-12-06', '61.20'),
 (3, 'ernesto manuel', '2021-12-06', '172.50'),
 (4, 'william ramses', '2021-12-06', '34.50'),
-(5, 'william ramses', '2021-12-06', '491.50');
+(5, 'william ramses', '2021-12-06', '491.50'),
+(7, 'william ramses', '2021-12-06', '63.50'),
+(9, 'william ramses', '2021-12-06', '34.50');
 
 -- --------------------------------------------------------
 
@@ -168,7 +173,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `estado`) VALUES
 (1, 'william ramses', 'william@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-(4, 'ernesto manuel', 'ernesto@gmail.com', 'ernesto', '3411f6d521ed0d17b6953e5741eaecca', 1);
+(4, 'ernesto manuel', 'ernesto@gmail.com', 'ernesto', '3411f6d521ed0d17b6953e5741eaecca', 1),
+(5, 'josue dominguez', 'josue@gmail.com', 'josue', 'c4f0f080c3f5992b3a4c03d04ace51a2', 1);
 
 --
 -- Índices para tablas volcadas
@@ -218,7 +224,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `detalle_permisos`
 --
 ALTER TABLE `detalle_permisos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_temp`
@@ -230,7 +236,7 @@ ALTER TABLE `detalle_temp`
 -- AUTO_INCREMENT de la tabla `detalle_ventas`
 --
 ALTER TABLE `detalle_ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -248,7 +254,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
