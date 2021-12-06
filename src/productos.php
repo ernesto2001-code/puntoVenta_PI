@@ -50,7 +50,7 @@ if (empty($existe) && $id_user != 1) {
                  <th>Nombre y Descripcion</th>
                  <th>Precio</th>
                  <th>Stock</th>
-                 <th></th>
+                 <th>Accion</th>
              </tr>
          </thead>
          <tbody>

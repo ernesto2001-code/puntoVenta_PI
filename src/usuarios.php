@@ -84,7 +84,7 @@ if (!empty($_POST)) {
                 <th>Nombre</th>
                 <th>Correo</th>
 
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
