@@ -63,16 +63,16 @@ if (empty($_REQUEST['id'])) {
           <?php echo isset($alert) ? $alert : ''; ?>
           <div class="form-group">
             <label for="codigo">Código de Barras</label>
-            <input type="text" placeholder="Ingrese código de barras" name="codigo" id="codigo" class="form-control" value="<?php echo $data_producto['codigo']; ?>">
+            <input type="text" placeholder="Ingrese código de barras" required name="codigo" id="codigo" class="form-control" value="<?php echo $data_producto['codigo']; ?>">
           </div>
           <div class="form-group">
             <label for="producto">Producto</label>
-            <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
+            <input type="text" class="form-control" placeholder="Ingrese nombre del producto" required name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
 
           </div>
           <div class="form-group">
             <label for="precio">Precio</label>
-            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio" value="<?php echo $data_producto['precio']; ?>">
+            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" required id="precio" value="<?php echo $data_producto['precio']; ?>">
 
           </div>
           <input type="submit" value="Actualizar Producto" class="btn btn-primary">
