@@ -6,7 +6,7 @@
                 <h4 class="text-white">No tienes permisos</h4>
             </div>
             <div class="card-body">
-                <a href="index.php" class="btn btn-danger btn-block">Regresar</a>
+                <a href="index.php" class="btn btn-secondary btn-block">Regresar</a>
             </div>
         </div>
     </div>
