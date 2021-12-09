@@ -54,19 +54,19 @@ if (!empty($_POST)) {
                     <?php echo isset($alert) ? $alert : ''; ?>
                     <div class="form-group">
                         <label for="precio">Precio Actual</label>
-                        <input type="text" class="form-control" value="<?php echo $data_producto['precio']; ?>" disabled>
+                        <input type="text" class="form-control" value="<?php echo $data_producto['precio']; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="precio">Cantidad de productos Disponibles</label>
-                        <input type="number" class="form-control" value="<?php echo $data_producto['existencia']; ?>" disabled>
+                        <input type="number" class="form-control" value="<?php echo $data_producto['existencia']; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="precio">Nuevo Precio</label>
-                        <input type="text" placeholder="Ingrese nombre del precio" name="precio" class="form-control" value="<?php echo $data_producto['precio']; ?>">
+                        <input type="text" placeholder="Ingrese nombre del precio" name="precio" class="form-control" value="<?php echo $data_producto['precio']; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="cantidad">Agregar Cantidad</label>
-                        <input type="number" placeholder="Ingrese cantidad" name="cantidad" id="cantidad" class="form-control">
+                        <input type="number" placeholder="Ingrese cantidad" name="cantidad" id="cantidad" class="form-control" required>
                     </div>
 
                     <input type="submit" value="Actualizar" class="btn btn-primary">
