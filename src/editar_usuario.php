@@ -66,7 +66,7 @@ if ($result_sql == 0) {
 
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="usuarios.php" class="btn btn-danger">Atras</a>
+                    <a href="usuarios.php" class="btn btn-secondary">Atras</a>
                 </form>
             </div>
         </div>

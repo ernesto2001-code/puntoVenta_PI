@@ -66,7 +66,7 @@ if (empty($existe) && $id_user != 1) {
                             ?>
                             </tbody>
                             </table>
-                            <a href="ventas.php"><button id="cerrar" class="btn btn-secondary"><i class="far fa-hand-point-left"></i> Regresar </button></a>
+                            <a href="ventas.php"><button id="cerrar" class="btn btn-secondary"><i class="far fa-hand-point-left"></i>  Atras </button></a>
 
                             <?php
                                 if (isset($_REQUEST["btnAgregar"])) {

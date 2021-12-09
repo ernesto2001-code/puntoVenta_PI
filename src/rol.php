@@ -58,7 +58,7 @@ if (isset($_POST['permisos'])) {
                     <br>
                     <button class="btn btn-primary " type="submit">Guardar</button>
                 </form>
-                <a href="usuarios.php" class="btn btn-danger ">salir</a>
+                <a href="usuarios.php" class="btn btn-secondary ">Atras</a>
             </div>
         </div>
     </div>
