@@ -78,7 +78,7 @@ if (empty($existe) && $id_user != 1) {
         ?>
         <a href="ventas.php?pagar=true" class="btn btn-success" id="btn_generar">    Pagar    <i class="fas fa-cash-register"></i></a>
         
-        <a href="ventas.php?vaciar=true" class="btn btn-warning" id="btn_generar" style="color: #fff;">    Vaciar    </a>
+        <a href="ventas.php?vaciar=true" class="btn btn-warning" id="btn_generar" style="color: #000;">    Vaciar    </a>
         <?php
         $date = date('Y-m-d');
         $usuario = $_SESSION['nombre'];
