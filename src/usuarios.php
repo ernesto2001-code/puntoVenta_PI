@@ -57,19 +57,19 @@ if (!empty($_POST)) {
                     <?php echo isset($alert) ? $alert : ''; ?>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Nombre" name="nombre" id="nombre">
+                        <input type="text" class="form-control" placeholder="Ingrese Nombre" required name="nombre" id="nombre">
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input type="email" class="form-control" placeholder="Ingrese Correo Electrónico" name="correo" id="correo">
+                        <input type="email" class="form-control" placeholder="Ingrese Correo Electrónico" required name="correo" id="correo">
                     </div>
                     <div class="form-group">
                         <label for="usuario">Usuario</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
+                        <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" required id="usuario">
                     </div>
                     <div class="form-group">
                         <label for="clave">Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
+                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" required name="clave" id="clave">
                     </div>
                     <input type="submit" value="Registrar" class="btn btn-primary">
                 </form>
@@ -112,7 +112,7 @@ if (!empty($_POST)) {
                         <td>
                             <?php if ($data['estado'] == 1) { ?>
                                 <a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-primary">Rol</a>
-                                <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i>Editar</a>
+                                <a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-primary"><i class='fas fa-edit'></i>Editar</a>
                                 <form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>

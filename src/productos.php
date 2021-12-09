@@ -75,7 +75,7 @@ if (empty($existe) && $id_user != 1) {
                          <td><?php echo $data['existencia']; ?></td>
                          <td>
                              <?php if ($data['estado'] == 1) { ?>
-                                 <a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-info"><i class="fas fa-edit"></i>Editar</a>
+                                 <a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i>Editar</a>
 
                                  <form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
                                      <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
@@ -103,19 +103,19 @@ if (empty($existe) && $id_user != 1) {
                      <?php echo isset($alert) ? $alert : ''; ?>
                      <div class="form-group">
                          <label for="codigo">Código de Barras</label>
-                         <input type="text" placeholder="Ingrese código de barras" name="codigo" id="codigo" class="form-control">
+                         <input type="text" placeholder="Ingrese código de barras" required name="codigo" id="codigo" class="form-control">
                      </div>
                      <div class="form-group">
                          <label for="producto">Producto</label>
-                         <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
+                         <input type="text" placeholder="Ingrese nombre del producto" required name="producto" id="producto" class="form-control">
                      </div>
                      <div class="form-group">
                          <label for="precio">Precio</label>
-                         <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">
+                         <input type="text" placeholder="Ingrese precio" class="form-control" required name="precio" id="precio">
                      </div>
                      <div class="form-group">
                          <label for="cantidad">Cantidad</label>
-                         <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
+                         <input type="number" placeholder="Ingrese cantidad" class="form-control" required name="cantidad" id="cantidad">
                      </div>
                      <input type="submit" value="Guardar Producto" class="btn btn-primary">
                  </form>

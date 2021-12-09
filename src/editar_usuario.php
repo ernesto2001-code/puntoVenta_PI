@@ -52,20 +52,20 @@ if ($result_sql == 0) {
                     <input type="hidden" name="id" value="<?php echo $idusuario; ?>">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" placeholder="Ingrese nombre" class="form-control" name="nombre" id="nombre" value="<?php echo $nombre; ?>">
+                        <input type="text" placeholder="Ingrese nombre" class="form-control" required name="nombre" id="nombre" value="<?php echo $nombre; ?>">
 
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input type="text" placeholder="Ingrese correo" class="form-control" name="correo" id="correo" value="<?php echo $correo; ?>">
+                        <input type="text" placeholder="Ingrese correo" class="form-control" required name="correo" id="correo" value="<?php echo $correo; ?>">
 
                     </div>
                     <div class="form-group">
                         <label for="usuario">Usuario</label>
-                        <input type="text" placeholder="Ingrese usuario" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario; ?>">
+                        <input type="text" placeholder="Ingrese usuario" class="form-control" required name="usuario" id="usuario" value="<?php echo $usuario; ?>">
 
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                     <a href="usuarios.php" class="btn btn-danger">Atras</a>
                 </form>
             </div>
