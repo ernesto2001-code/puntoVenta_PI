@@ -8,12 +8,12 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: permisos.php");
 }
-$query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
+$query = mysqli_query($conexion, "SELECT * FROM ventas");
 ?>
 <table class="table table-light" id="tbl">
     <thead class="thead-dark">
         <tr>
-            <th>Id</th>
+            <th>#</th>
             <th>Vendedor</th>
             <th>Fecha</th>
             <th>Monto</th>
@@ -28,6 +28,7 @@ $query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
                 <td><?php echo $row['fecha']; ?></td>
                 <td>$<?php echo $row['total'];?></td>
                 <td><form action="eliminar_venta.php?id=<?php echo $row['id']; ?>" method="post" class="confirmar d-inline">
+                        <a href="#" class="btn btn-primary">Ver Detalles</a>
                         <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                     </form></td>
             </tr>

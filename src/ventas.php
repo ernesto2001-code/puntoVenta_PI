@@ -95,7 +95,7 @@ if (empty($existe) && $id_user != 1) {
 
             if (isset($_REQUEST['pagar'])) {
 
-                $consulta = "INSERT INTO `detalle_ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
+                $consulta = "INSERT INTO `ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
 
                 $resultado = $conexion -> query($consulta);
 
