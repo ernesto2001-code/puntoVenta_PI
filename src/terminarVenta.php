@@ -7,7 +7,7 @@ session_start();
 
 $total = $_POST["total"];
 include_once "../conexion.php";
-
+$usuario = $_SESSION['usuario'];
 
 $ahora = date("Y-m-d H:i:s");
 
@@ -22,7 +22,7 @@ $resultado = $sentencia->fetch(PDO::FETCH_OBJ);
 $idVenta = $resultado === false ? 1 : $resultado->id;
 
 $base_de_datos->beginTransaction();
-$sentencia = $base_de_datos->prepare("INSERT INTO productos_vendidos(id_producto, id_venta, cantidad) VALUES (?, ?, ?);");
+$sentencia = $base_de_datos->prepare("INSERT INTO productos_vendidos(id_producto,usuario, id_venta, cantidad) VALUES (?, '$usuario',?, ?);");
 $sentenciaExistencia = $base_de_datos->prepare("UPDATE productos SET existencia = existencia - ? WHERE id = ?;");
 foreach ($_SESSION["carrito"] as $producto) {
 	$total += $producto->total;
