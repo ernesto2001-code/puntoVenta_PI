@@ -13,7 +13,7 @@ $sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.id
 $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 <div class="col-xs-12">
-		<h1>Ventas</h1>
+		<h1>Ventas Realizadas.</h1>
 		<div>
 			<a class="btn btn-success" href="ventas.php">Nueva <i class="fa fa-plus"></i></a>
 		</div>
