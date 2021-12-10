@@ -12,10 +12,10 @@ include_once "../conexion.php";
 $ahora = date("Y-m-d H:i:s");
 
 
-$sentencia = $base_de_datos->prepare("INSERT INTO venta(fecha, total) VALUES (?, ?);");
+$sentencia = $base_de_datos->prepare("INSERT INTO ventas(fecha, total) VALUES (?, ?);");
 $sentencia->execute([$ahora, $total]);
 
-$sentencia = $base_de_datos->prepare("SELECT id FROM venta ORDER BY id DESC LIMIT 1;");
+$sentencia = $base_de_datos->prepare("SELECT id FROM ventas ORDER BY id DESC LIMIT 1;");
 $sentencia->execute();
 $resultado = $sentencia->fetch(PDO::FETCH_OBJ);
 

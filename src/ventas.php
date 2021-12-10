@@ -74,7 +74,7 @@ $granTotal = 0;
 					<td><?php echo $producto->descripcion ?></td>
 					<td><?php echo $producto->precioVenta ?></td>
 					<td><?php echo $producto->cantidad ?></td>
-					<td><?php echo $producto->total ?></td>
+					<td>$<?php echo $producto->total ?></td>
 					<td><a class="btn btn-danger" href="<?php echo "ventas.php?indice=" . $indice?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>
@@ -85,17 +85,19 @@ $granTotal = 0;
 		<form action="./terminarVenta.php" method="POST">
 			<input name="total" type="hidden" value="<?php echo $granTotal;?>">
 			<button type="submit" class="btn btn-success">Terminar venta</button>
-			<a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
+			<a href="cambios/cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
 		</form>
 	</div>
 
     <?php
-    if(!isset($_GET["indice"])) return;
-    $indice = $_GET["indice"];
+        if(!isset($_GET["indice"])) return;
+        $indice = $_GET["indice"];
     
-    session_start();
-    array_splice($_SESSION["carrito"], $indice, 1);
-    header("Location: ventas.php?status=3");
+        session_start();
+        array_splice($_SESSION["carrito"], $indice, 1);
+        header("Location: ventas.php?status=3");
+
+
     
     ?>
 <?php include_once "includes/footer.php"; ?>

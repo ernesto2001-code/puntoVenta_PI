@@ -8,30 +8,58 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: permisos.php");
 }
-$query = mysqli_query($conexion, "SELECT * FROM ventas");
+
+$sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
+$ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
-<table class="table table-light" id="tbl">
-    <thead class="thead-dark">
-        <tr>
-            <th>Id</th>
-            <th>Vendedor</th>
-            <th>Fecha</th>
-            <th>Monto</th>
-            <th>Accion</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php while ($row = mysqli_fetch_assoc($query)) { ?>
-            <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['usuario']; ?></td>
-                <td><?php echo $row['fecha']; ?></td>
-                <td>$<?php echo $row['total'];?></td>
-                <td><form action="eliminar_venta.php?id=<?php echo $row['id']; ?>" method="post" class="confirmar d-inline">
-                        <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-                    </form></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<div class="col-xs-12">
+		<h1>Ventas</h1>
+		<div>
+			<a class="btn btn-success" href="ventas.php">Nueva <i class="fa fa-plus"></i></a>
+		</div>
+		<br>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>Número</th>
+					<th>Fecha</th>
+					<th>Productos vendidos</th>
+					<th>Total</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($ventas as $venta){ ?>
+				<tr>
+					<td><?php echo $venta->id ?></td>
+					<td><?php echo $venta->fecha ?></td>
+					<td>
+						<table class="table table-bordered">
+							<thead class="thead-dark">
+								<tr>
+									<th>Código</th>
+									<th>Descripción</th>
+									<th>Cantidad</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach(explode("__", $venta->productos) as $productosConcatenados){ 
+								$producto = explode("..", $productosConcatenados)
+								?>
+								<tr>
+									<td><?php echo $producto[0] ?></td>
+									<td><?php echo $producto[1] ?></td>
+									<td><?php echo $producto[2] ?></td>
+								</tr>
+								<?php } ?>
+							</tbody>
+						</table>
+					</td>
+					<td>$<?php echo $venta->total ?></td>
+					<td><a class="btn btn-danger" href="<?php echo "eliminarVenta.php?id=" . $venta->id?>"><i class="fa fa-trash"></i></a></td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
 <?php include_once "includes/footer.php"; ?>
