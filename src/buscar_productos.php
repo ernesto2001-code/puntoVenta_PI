@@ -70,11 +70,13 @@ if (empty($existe) && $id_user != 1) {
 
                             <?php
                                 if (isset($_REQUEST["btnAgregar"])) {
+                                    $idProducto = $_REQUEST['txtId'];
                                     $producto = $_REQUEST['txtDescripcion']; 
                                     $codigo = $_REQUEST['txtCodigo'];
                                     $cantidad = $_REQUEST['cant'];
                                     $precio = $_REQUEST['txtPrecio'];
 
+                                    $_SESSION["carrito"][$producto]["idProdu"] = $idProducto;
                                     $_SESSION["carrito"][$producto]["code"] = $codigo;
                                     $_SESSION["carrito"][$producto]["name"] = $producto;
                                     $_SESSION["carrito"][$producto]["canti"] = $cantidad;
