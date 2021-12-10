@@ -8,7 +8,7 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: permisos.php");
 }
-$query = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
+$query = mysqli_query($conexion, "SELECT * FROM ventas");
 ?>
 <table class="table table-light" id="tbl">
     <thead class="thead-dark">

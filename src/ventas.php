@@ -9,103 +9,93 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location:permisos.php");
 }
+
+if(!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
+$granTotal = 0;
 ?>
-<div class="row">
-    <div class="col-lg-12">
-        <br>
-        <a href="buscar_productos.php"><button class="btn btn-primary" id="abrir">Agregar Producto <i class="fas fa-cart-plus"></i></button></a>
-        <div class="table-responsive">
-        <br>
-        <?php
-            $total = 0;
-            if (isset($_SESSION['carrito'])) 
-            {?>
-                
-            <table class="table table-hover" id="tblDetalle">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Descripción</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Accion</th>
-                    </tr>
-                </thead>
-                <tbody id="detalle_venta">
+<div class="col-xs-12">
+		<h1>Vender</h1>
+		<?php
+			if(isset($_GET["status"])){
+				if($_GET["status"] === "1"){
+					?>
+						<?php echo '<script>alert(<strong>¡Correcto!</strong> Venta realizada correctamente?);</script>';?>
+					<?php
+				}else if($_GET["status"] === "2"){
+					?>
+						<script>alert('Venta Cancelada')</script>
+					<?php
+				}else if($_GET["status"] === "3"){
+					?>
+					<
+                    <?php echo '<script>alert("Producto eliminado.");</script>';?>
+					
+					<?php
+				}else if($_GET["status"] === "4"){
+					?>
+					<div class="alert alert-warning">
+							El producto que buscas no existe
+						</div>
+					<?php
+				}else if($_GET["status"] === "5"){
+					?>
+					<div class="alert alert-danger">
+							El stock del producto se agotó.
+						</div>
+					<?php
+				}?>
+				
                 <?php
-                    foreach ($_SESSION["carrito"] as $indice => $arreglo) {
-                        $total += $arreglo["canti"] * $arreglo["precio"];                                        
-                            echo "<tr>";
-                            foreach ($arreglo as $key => $value) {
-                                echo "<th>" .$value. "</th>";
-                            }
-                            echo "<th><a href='ventas.php?item=$indice' class='btn btn-danger'><i class='fas fa-trash'></a></th>";
-                            echo "</tr>";
-                        }?>
-                </tbody>
-                <tfoot>
-                    <tr class="font-weight-bold">
-                        <td colspan=3>Total a pagar: $<?php echo $total?></td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
-            <?php }
-            else {
-                echo "<table class='table table-hover' id='tbblDetalle'>
-                                <thead class='thead-dark'>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Descripcion</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                    <th>Accion</th>
-                                </tr>
-                                </thead>
-                                <tbody id='detalle_venta'>
-                                    <tr>
-                                        <th>Vacio</th>
-                                    </tr>
-                                </tbody>
-                                </table>";
-            }
-            ?>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <?php
-        
-        ?>
-        <a href="ventas.php?pagar=true" class="btn btn-success" id="btn_generar">    Pagar    <i class="fas fa-cash-register"></i></a>
-        
-        <a href="ventas.php?vaciar=true" class="btn btn-warning" id="btn_generar" style="color: #000;">    Vaciar    </a>
-        <?php
-        $date = date('Y-m-d');
-        $usuario = $_SESSION['nombre'];
+				}
+		?>
+		<br>
+		<form method="post" action="agregar_carrito.php">
+			<label for="codigo">Código de barras:</label>
+			<input autocomplete="off" autofocus class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
+		</form>
+		<br><br>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>Código</th>
+					<th>Descripción</th>
+					<th>Precio de venta</th>
+					<th>Cantidad</th>
+					<th>Total</th>
+					<th>Quitar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($_SESSION["carrito"] as $indice => $producto){ 
+						$granTotal += $producto->total;
+					?>
+				<tr>
+					<td><?php echo $producto->codigo ?></td>
+					<td><?php echo $producto->descripcion ?></td>
+					<td><?php echo $producto->precioVenta ?></td>
+					<td><?php echo $producto->cantidad ?></td>
+					<td><?php echo $producto->total ?></td>
+					<td><a class="btn btn-danger" href="<?php echo "ventas.php?indice=" . $indice?>"><i class="fa fa-trash"></i></a></td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		</table>
 
-        if (isset($_REQUEST["item"])) {
+		<h3>Total: <?php echo $granTotal; ?></h3>
+		<form action="./terminarVenta.php" method="POST">
+			<input name="total" type="hidden" value="<?php echo $granTotal;?>">
+			<button type="submit" class="btn btn-success">Terminar venta</button>
+			<a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
+		</form>
+	</div>
 
-            $producto = $_REQUEST["item"];
-            unset($_SESSION["carrito"][$producto]);
-        }
-
-        if (isset($_REQUEST["vaciar"])) {
-            unset($_SESSION["carrito"]);
-        }
-
-            if (isset($_REQUEST['pagar'])) {
-
-                $consulta = "INSERT INTO `ventas`(`usuario`,`fecha`, `total`) VALUES ('$usuario','$date', '$total')";
-
-                $resultado = $conexion -> query($consulta);
-
-                if ($resultado) {
-                    unset($_SESSION["carrito"]);
-                }
-            }
-        ?>
-
-    </div>
-
-</div>
+    <?php
+    if(!isset($_GET["indice"])) return;
+    $indice = $_GET["indice"];
+    
+    session_start();
+    array_splice($_SESSION["carrito"], $indice, 1);
+    header("Location: ventas.php?status=3");
+    
+    ?>
 <?php include_once "includes/footer.php"; ?>

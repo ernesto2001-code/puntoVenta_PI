@@ -20,7 +20,7 @@ if (empty($existe) && $id_user != 1) {
                 Todo los campos son obligatorios
               </div>';
         } else {
-            $query = mysqli_query($conexion, "SELECT * FROM producto WHERE codigo = '$codigo'");
+            $query = mysqli_query($conexion, "SELECT * FROM productos WHERE codigo = '$codigo'");
             $result = mysqli_fetch_array($query);
             if ($result > 0) {
                 $alert = '<div class="alert alert-warning" role="alert">
