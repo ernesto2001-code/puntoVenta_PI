@@ -19,7 +19,6 @@ $totalV = mysqli_num_rows($ventas);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Usuarios</div>
-                            <div class="h5 mb-0 font-weight-bold text-white"><?php echo $totalU; ?></div>
                         </div>
                     </div>
                 </div>
@@ -33,9 +32,6 @@ $totalV = mysqli_num_rows($ventas);
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Productos</div>
                             <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-white"><?php echo $totalP; ?></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -49,7 +45,6 @@ $totalV = mysqli_num_rows($ventas);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Ventas</div>
-                            <div class="h5 mb-0 font-weight-bold text-white"><?php echo $totalV; ?></div>
                         </div>
                     </div>
                 </div>
