@@ -2,9 +2,9 @@
 require "../conexion.php";
 $usuarios = mysqli_query($conexion, "SELECT * FROM usuario");
 $totalU= mysqli_num_rows($usuarios);
-$productos = mysqli_query($conexion, "SELECT * FROM producto");
+$productos = mysqli_query($conexion, "SELECT * FROM productos");
 $totalP = mysqli_num_rows($productos);
-$ventas = mysqli_query($conexion, "SELECT * FROM detalle_ventas");
+$ventas = mysqli_query($conexion, "SELECT * FROM ventas");
 $totalV = mysqli_num_rows($ventas);
 ?>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
