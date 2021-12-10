@@ -13,7 +13,6 @@ if (empty($existe) && $id_user != 1) {
         $producto = $_POST['producto'];
         $precio = $_POST['precio'];
         $cantidad = $_POST['cantidad'];
-        $usuario_id = $_SESSION['idUser'];
         $alert = "";
         if (empty($codigo) || empty($producto) || empty($precio) || $precio <  0 || empty($cantidad) || $cantidad < 0) {
             $alert = '<div class="alert alert-danger" role="alert">
@@ -27,7 +26,7 @@ if (empty($existe) && $id_user != 1) {
                         El código ya existe
                     </div>';
             } else {
-				$query_insert = mysqli_query($conexion,"INSERT INTO producto(codigo,descripcion,precio,existencia,usuario_id) values ('$codigo', '$producto','$precio','$cantidad','$usuario_id')");
+				$query_insert = mysqli_query($conexion,"INSERT INTO productos(codigo,descripcion,precioVenta,existencia) values ('$codigo', '$producto','$precio','$cantidad')");
                 if ($query_insert) {
                     $alert = '<div class="alert alert-success" role="alert">
                 Producto Registrado
@@ -58,29 +57,20 @@ if (empty($existe) && $id_user != 1) {
              <?php
                 include "../conexion.php";
 
-                $query = mysqli_query($conexion, "SELECT * FROM producto");
+                $query = mysqli_query($conexion, "SELECT * FROM productos");
                 $result = mysqli_num_rows($query);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query)) {
-                        if ($data['estado'] == 1) {
-                            $estado = '<span class="badge badge-pill badge-success">Activo</span>';
-                        } else {
-                            $estado = '<span class="badge badge-pill badge-danger">Inactivo</span>';
-                        }
                 ?>
                      <tr>
                          <td><?php echo $data['codigo']; ?></td>
                          <td><?php echo $data['descripcion']; ?></td>
-                         <td>$<?php echo $data['precio']; ?></td>
+                         <td>$<?php echo $data['precioVenta']; ?></td>
                          <td><?php echo $data['existencia']; ?></td>
-                         <td>
-                             <?php if ($data['estado'] == 1) { ?>
-                                 <a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i>Editar</a>
-
-                                 <form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
-                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-                                 </form>
-                             <?php } ?>
+                         <td><a href="editar_producto.php?id=<?php echo $data['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i>Editar</a>
+                            <form action="eliminar_producto.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
+                                <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
                          </td>
                      </tr>
              <?php }

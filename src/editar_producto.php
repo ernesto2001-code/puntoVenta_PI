@@ -19,7 +19,8 @@ if (!empty($_POST)) {
     $codigo = $_POST['codigo'];
     $producto = $_POST['producto'];
     $precio = $_POST['precio'];
-    $query_update = mysqli_query($conexion, "UPDATE producto SET codigo = '$codigo', descripcion = '$producto', precio= $precio WHERE codproducto = $codproducto");
+
+    $query_update = mysqli_query($conexion, "UPDATE productos SET codigo = '$codigo', descripcion = '$producto', precioVenta= '$precio' WHERE id = '$codproducto'");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Producto Modificado
@@ -41,7 +42,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id_producto)) {
     header("Location: productos.php");
   }
-  $query_producto = mysqli_query($conexion, "SELECT * FROM producto WHERE codproducto = $id_producto");
+  $query_producto = mysqli_query($conexion, "SELECT * FROM productos WHERE id = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
 
   if ($result_producto > 0) {
@@ -72,7 +73,7 @@ if (empty($_REQUEST['id'])) {
           </div>
           <div class="form-group">
             <label for="precio">Precio</label>
-            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" required id="precio" value="<?php echo $data_producto['precio']; ?>">
+            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" required id="precio" value="$<?php echo $data_producto['precioVenta']; ?>">
 
           </div>
           <input type="submit" value="Actualizar Producto" class="btn btn-primary">
