@@ -7,9 +7,16 @@ $sql = mysqli_query($conexion, "SELECT p.*, d.* FROM permisos p INNER JOIN detal
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location:permisos.php");
+
 }
-if (!empty($_GET['id'])) {
-    $id = $_GET['id'];
-    $query_delete = mysqli_query($conexion, "DELETE FROM detalle_ventas WHERE id = $id");
-    mysqli_close($conexion);
-    header("Location:lista_ventas.php");}
+
+if(!isset($_GET["id"])) exit();
+$id = $_GET["id"];
+include_once "base_de_datos.php";
+$sentencia = $base_de_datos->prepare("DELETE FROM ventas WHERE id = ?;");
+$resultado = $sentencia->execute([$id]);
+if($resultado === TRUE){
+	header("Location: lista_ventas.php");
+	exit;
+}
+else echo "Algo salió mal";

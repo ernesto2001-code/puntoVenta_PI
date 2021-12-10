@@ -14,34 +14,30 @@ if(!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
 $granTotal = 0;
 ?>
 <div class="col-xs-12">
-		<h1>Vender</h1>
+		<h1>Realizar Venta</h1>
 		<?php
 			if(isset($_GET["status"])){
 				if($_GET["status"] === "1"){
 					?>
-						<?php echo '<script>alert(<strong>¡Correcto!</strong> Venta realizada correctamente?);</script>';?>
+					VENTA REALIZADA CORRECTAMENTE.
 					<?php
 				}else if($_GET["status"] === "2"){
 					?>
-						<script>alert('Venta Cancelada')</script>
+						VENTA CANCELADA.
 					<?php
 				}else if($_GET["status"] === "3"){
 					?>
 					<
-                    <?php echo '<script>alert("Producto eliminado.");</script>';?>
+                    PRODUCTO ELIMINADO.
 					
 					<?php
 				}else if($_GET["status"] === "4"){
 					?>
-					<div class="alert alert-warning">
-							El producto que buscas no existe
-						</div>
+					EL PRODUCTO NO EXISTE.
 					<?php
 				}else if($_GET["status"] === "5"){
 					?>
-					<div class="alert alert-danger">
-							El stock del producto se agotó.
-						</div>
+					EL STOCK DEL PRODUCTO SE ACABÓ.
 					<?php
 				}?>
 				

@@ -56,7 +56,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 						</table>
 					</td>
 					<td>$<?php echo $venta->total ?></td>
-					<td><a class="btn btn-danger" href="<?php echo "eliminarVenta.php?id=" . $venta->id?>"><i class="fa fa-trash"></i></a></td>
+					<td><a class="btn btn-danger" href="<?php echo "eliminar_venta.php?id=" . $venta->id?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
