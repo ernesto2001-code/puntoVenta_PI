@@ -77,7 +77,7 @@ if (empty($_REQUEST['id'])) {
 
           </div>
           <input type="submit" value="Actualizar Producto" class="btn btn-primary">
-          <a href="productos.php" class="btn btn-danger">Atras</a>
+          <a href="productos.php" class="btn btn-secondary">Atras</a>
         </form>
       </div>
     </div>
